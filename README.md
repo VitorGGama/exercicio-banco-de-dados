@@ -44,14 +44,4 @@ ALTER TABLE professores
     ALTER TABLE alunos
     ADD CONSTRAINT fk_alunos_cursos
     FOREIGN KEY (cursos_id) REFERENCES cursos(id); 
-
-
-
-
-
-
-
-
-
-
 ```
