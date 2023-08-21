@@ -14,7 +14,11 @@ SELECT nome, dataDeNascimento FROM alunos WHERE YEAR(datadeNascimento) < 2009;
 
 ### 2) Faça uma consulta que calcule a média das notas de cada aluno e as mostre com duas casas decimais.
 
-
+```sql
+SELECT nome, ROUND((primeiraNota + segundaNota) / 2, 2) AS media_notas
+FROM alunos;
+```
+![](media_notas.PNG)
 
 ---
 
