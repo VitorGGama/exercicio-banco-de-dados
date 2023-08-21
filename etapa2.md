@@ -53,7 +53,27 @@ INSERT INTO professores (nome, areaAtuacao, cursos_id) VALUES
     ('Ozzy Osbourne', 'desenvolvimento', 2),
     ('David Gilmour', 'desenvolvimento', 1);
 
+UPDATE cursos SET professores_id = 5 WHERE id = 1;
+UPDATE cursos SET professores_id = 4 WHERE id = 2;
+UPDATE cursos SET professores_id = 3 WHERE id = 3;
+UPDATE cursos SET professores_id = 2 WHERE id = 4;
+UPDATE cursos SET professores_id = 1 WHERE id = 5;
+
+INSERT INTO alunos (nome, dataDeNascimento, primeiraNota, segundaNota, cursos_id) VALUES
+    ('Maria Silva', '1982-03-15', 8.00, 4.00, 4),
+    ('João Santos', '1990-07-05', 7.00, 9.00, 5),
+    ('Ana Rodrigues ', '1975-09-22', 9.00, 3.00,3),
+    ('Pedro Oliveira', '2001-01-10', 6.00, 8.45, 2),
+    ('Sofia Pereira', '1988-04-30', 10.00, 7.80, 1),
+    ('Luis Mendes', '1967-08-12', 5.05, 6.95, 1),
+    ('Carolina Almeida', '1995-10-25', 8.00, 9.00, 2),
+    ('Miguel Ferreira', '1984-12-07', 9.00, 8.20, 3),
+    ('Ines Costa', '2000-06-18', 5.00, 8.00, 4),
+    ('Andre Ramos', '1979-02-03', 6.00, 10.00, 5);
     
+
+
+
 
 
 
