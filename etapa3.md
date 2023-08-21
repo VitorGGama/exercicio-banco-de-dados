@@ -6,9 +6,15 @@
 
 ### 1) Faça uma consulta que mostre os alunos que nasceram antes do ano 2009
 
+```sql
+SELECT nome, dataDeNascimento FROM alunos WHERE YEAR(datadeNascimento) < 2009;
+```
+![](consulta.PNG)
 ---
 
 ### 2) Faça uma consulta que calcule a média das notas de cada aluno e as mostre com duas casas decimais.
+
+
 
 ---
 
