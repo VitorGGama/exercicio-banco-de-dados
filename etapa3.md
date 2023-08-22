@@ -147,6 +147,7 @@ WHERE titulo = 'Figma' AND cargaHoraria = 10;
 DELETE FROM alunos
 WHERE id IN (5, 12);
 ```
+![](delete-alunos.PNG)
 
 ---
 
@@ -161,8 +162,8 @@ JOIN
     cursos ON alunos.cursos_id = cursos.id
 ORDER BY
     alunos.nome;
-
 ```
+![](lista-alunos-cursos.PNG)
 ---
 
 ## DESAFIOS
