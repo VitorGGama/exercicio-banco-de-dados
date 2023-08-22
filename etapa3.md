@@ -25,6 +25,7 @@ FROM alunos;
 ### 3) Faça uma consulta que calcule o limite de faltas de cada curso de acordo com a carga horária. Considere o limite como 25% da carga horária. Classifique em ordem crescente pelo título do curso.
 
 ```sql
+<<<<<<< Updated upstream
 SELECT titulo, cargaHoraria, ROUND(cargaHoraria * 0.25) AS LimiteFaltas
 FROM
     cursos
@@ -33,6 +34,12 @@ ORDER BY
 ```
 ![](limiteDefaltas.png)
 
+=======
+
+```
+
+---
+>>>>>>> Stashed changes
 
 ### 4) Faça uma consulta que mostre os nomes dos professores que são somente da área "desenvolvimento".
 ```sql
@@ -53,9 +60,7 @@ WHERE areaAtuacao = 'desenvolvimento'
 ### 5) Faça uma consulta que mostre a quantidade de professores que cada área ("design", "infra", "desenvolvimento") possui.
 
 ```sql
-SELECT areaAtuacao, COUNT(*) 
-FROM professores 
-GROUP BY areaAtuacao;
+SELECT areaAtuacao, COUNT(*) FROM professores GROUP BY areaAtuacao;
 ```
 ![](professoresArea.png)
 
@@ -68,7 +73,7 @@ SELECT alunos.nome, cursos.titulo, cursos.cargaHoraria
 FROM alunos
 JOIN cursos ON alunos.cursos_id = cursos.id;
 ```
-
+![](nome-titulo-choraria.PNG)
 ---
 
 ### 7) Faça uma consulta que mostre o nome dos professores e o título do curso que lecionam. Classifique pelo nome do professor.
@@ -79,7 +84,7 @@ FROM professores
 JOIN cursos ON professores.cursos_id = cursos.id
 ORDER BY professores.nome;
 ```
-
+![](professores-titulos.PNG)
 ---
 
 ### 8) Faça uma consulta que mostre o nome dos alunos, o título dos cursos que fazem, e o professor de cada curso.
@@ -90,7 +95,7 @@ FROM alunos
 JOIN cursos ON alunos.cursos_id = cursos.id
 JOIN professores ON cursos.professores_id = professores.id;
 ```
-
+![](nome-titulo-prof.PNG)
 ---
 
 ### 9) Faça uma consulta que mostre a quantidade de alunos que cada curso possui. Classifique os resultados em ordem descrecente de acordo com a quantidade de alunos.
@@ -102,30 +107,29 @@ JOIN alunos ON cursos.id = alunos.cursos_id
 GROUP BY cursos.id
 ORDER BY QuantidadeDeAlunos DESC;
 ```
-
+![](qtd-alunos-curso.PNG)
 ---
 
 ### 10) Faça uma consulta que mostre o nome dos alunos, suas notas, médias, e o título dos cursos que fazem. Devem ser considerados somente os alunos de Front-End e Back-End. Mostre os resultados classificados pelo nome do aluno.
 
 ```sql
 SELECT
-    alunos.nome,
-    alunos.primeiraNota,
-    alunos.segundaNota,
-    ROUND((alunos.primeiraNota + alunos.segundaNota) / 2, 2),
-    cursos.titulo
+    alunos.nome, --nome dos alunos
+    alunos.primeiraNota,--nota 1 dos alunos
+    alunos.segundaNota, -- nota 2 dos alunos
+    ROUND((alunos.primeiraNota + alunos.segundaNota) / 2, 2) AS 'Média', -- calculo das medias
+    cursos.titulo -- curso que fazem
 FROM
-    alunos
+    alunos -- tabela alunos
 JOIN
-    cursos ON alunos.cursos_id = cursos.id
-JOIN
-    professores ON cursos.professores_id = professores.id
-WHERE
-    professores.areaAtuacao IN ('Front-End', 'Back-End')
-ORDER BY
-    alunos.nome;
+    cursos ON alunos.cursos_id = cursos.id --junção na tabela alunos tabela cursos
 
+WHERE
+    alunos.cursos_id IN (1, 2) --filtros de apresentar alunos de determinados cursos
+ORDER BY
+    alunos.nome; --ordena o resultado em ordem alfabética
 ```
+![](consulta-alunos-frontBack.PNG)
 ---
 
 ### 11) Faça uma consulta que altere o nome do curso de Figma para Adobe XD e sua carga horária de 10 para 15.
@@ -135,17 +139,13 @@ UPDATE cursos
 SET titulo = 'Adobe XD', cargaHoraria = 15
 WHERE titulo = 'Figma' AND cargaHoraria = 10;
 ```
+![](figma-adobexd.PNG)
 ---
 
 ### 12) Faça uma consulta que exclua um aluno do curso de Redes de Computadores e um aluno do curso de UX/UI.
 ```sql
 DELETE FROM alunos
-WHERE cursos_id IN (
-    SELECT id
-    FROM cursos
-    WHERE titulo IN ('Redes de Computadores', 'UX/UI Design')
-)
-LIMIT 2;
+WHERE id IN (5, 12);
 ```
 
 ---
