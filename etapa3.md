@@ -168,7 +168,7 @@ ORDER BY
 
 ## DESAFIOS
 
-1) Criar uma consulta que calcule a idade do aluno
+### 1) Criar uma consulta que calcule a idade do aluno
 
 ```sql
 SELECT nome,
@@ -179,15 +179,30 @@ FROM alunos;
 ![](idade-alunos.PNG)
 
 
-2) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **maior ou igual a 7**.
+### 2) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **maior ou igual a 7**.
 ```sql
+SELECT nome, ROUND((primeiraNota + segundaNota) / 2, 2) AS media_notas
+FROM alunos
+WHERE ROUND((primeiraNota + segundaNota) / 2, 2) >= 7;
+```
+![](maiores-de-7.PNG)
 
+
+### 3) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **menor que 7**.
+
+
+```sql
+SELECT nome, ROUND((primeiraNota + segundaNota) / 2, 2) AS media_notas
+FROM alunos
+WHERE ROUND((primeiraNota + segundaNota) / 2, 2) < 7;
+```
+![](menor-7.PNG)
+
+### 4) Criar uma consulta que mostre a quantidade de alunos com média **maior ou igual a 7**.
+```sql
+SELECT COUNT(*) AS 'Qtd de alunos'
+FROM alunos
+WHERE ROUND((primeiraNota + segundaNota) / 2, 2) >= 7;
 
 ```
-
-
-
-
-
-3) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **menor que 7**.
-4) Criar uma consulta que mostre a quantidade de alunos com média **maior ou igual a 7**.
+![](qtd-alunos-maior7.PNG)
