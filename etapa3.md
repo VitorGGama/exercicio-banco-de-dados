@@ -169,6 +169,25 @@ ORDER BY
 ## DESAFIOS
 
 1) Criar uma consulta que calcule a idade do aluno
+
+```sql
+SELECT nome,
+       dataDeNascimento,
+TIMESTAMPDIFF(YEAR, dataDeNascimento, CURDATE()) AS idade   
+FROM alunos;      
+```
+![](idade-alunos.PNG)
+
+
 2) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **maior ou igual a 7**.
+```sql
+
+
+```
+
+
+
+
+
 3) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **menor que 7**.
 4) Criar uma consulta que mostre a quantidade de alunos com média **maior ou igual a 7**.
