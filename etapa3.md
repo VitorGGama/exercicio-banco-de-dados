@@ -31,6 +31,7 @@ FROM
 ORDER BY
     titulo ASC;
 ```
+![](limiteDefaltas.png)
 
 
 ### 4) Faça uma consulta que mostre os nomes dos professores que são somente da área "desenvolvimento".
@@ -43,7 +44,9 @@ WHERE areaAtuacao = 'desenvolvimento'
       FROM professores
       WHERE areaAtuacao <> 'desenvolvimento'
   );
+  
 ```
+![](professoresDesenvolvimento.png)
 
 ---
 
@@ -53,8 +56,8 @@ WHERE areaAtuacao = 'desenvolvimento'
 SELECT areaAtuacao, COUNT(*) 
 FROM professores 
 GROUP BY areaAtuacao;
-
 ```
+![](professoresArea.png)
 
 ---
 
