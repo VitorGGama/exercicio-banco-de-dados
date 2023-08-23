@@ -36,17 +36,14 @@ ORDER BY
 
 ### 4) Faça uma consulta que mostre os nomes dos professores que são somente da área "desenvolvimento".
 ```sql
-SELECT nome
+SELECT nome, areaAtuacao
 FROM professores
-WHERE areaAtuacao = 'desenvolvimento'
-  AND id NOT IN (
-      SELECT id
-      FROM professores
-      WHERE areaAtuacao <> 'desenvolvimento'
-  );
+WHERE areaAtuacao 
+LIKE '%desenvolvimento%';  
+
   
 ```
-![](imagens/professoresDesenvolvimento.png)
+![](imagens/areaDeAtuacao.PNG)
 
 ---
 
